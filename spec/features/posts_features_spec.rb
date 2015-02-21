@@ -48,4 +48,19 @@ feature 'posts' do
 
   end
 
+  context 'editing restaurants' do
+
+    before {Post.create name: 'Image'}
+
+    scenario 'lets a user edit image' do
+      visit '/posts'
+      click_link 'Edit Image'
+      fill_in 'Name', with: '#Playing'
+      click_button 'Update Post'
+      expect(page).to have_content '#Playing'
+      expect(current_path).to eq '/posts'
+    end 
+
+  end
+
 end
