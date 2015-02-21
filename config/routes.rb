@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  root 'posts#index'
+
+  get '/new' => 'posts#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -40,6 +40,8 @@ group :development, :test do
 
   gem 'capybara'
 
+  gem 'launchy'
+
   gem 'rspec-collection_matchers'
 
   # Access an IRB console on exception pages or by using <%= console %> in views

@@ -4,4 +4,17 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def post_params
+    params.require(:post).permit(:name)
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    Post.create(post_params)
+    redirect_to '/posts'
+  end
+
 end
