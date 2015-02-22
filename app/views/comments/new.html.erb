@@ -1,0 +1,7 @@
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <%= f.label :thumbsup %>
+  <%= f.check_box :thumbsup %>
+  <%= f.submit 'Leave Comment' %>
+<% end %>
