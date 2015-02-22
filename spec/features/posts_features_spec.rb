@@ -23,6 +23,7 @@ feature 'posts' do
   end
 
   context 'creating restaurants' do
+
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
       visit '/posts'
       click_link 'Add Image'
@@ -32,6 +33,7 @@ feature 'posts' do
       expect(page).to have_content 'Image1'
       expect(current_path).to eq '/posts'
     end
+
   end
 
   context 'viewing posts' do
