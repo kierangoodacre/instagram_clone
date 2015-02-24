@@ -1,5 +1,6 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
+    <%= image_tag post.image.url(:thumb) %>
     <h2> <%= link_to post.name, post_path(post) %> </h2>
     <%= link_to "Edit #{post.name}", edit_post_path(post)%>
     <%= link_to "Delete #{post.name}", post_path(post), method: :delete %>
@@ -9,8 +10,11 @@
     <% if post.comments.any? %>
       <ul>
         <% post.comments.each do |comment| %>
+          <p><%= pluralize comment.likes.count, 'like' %></p>
           <li>
             <%= comment.comment %>, <strong><%= comment.thumbsup %></strong>
+            <%= link_to "Like", comment_likes_path(comment), class: 'likes-link' %>
+            <span class="likes_count"> <%= comment.likes.count %> </span> <%= 'like'.pluralize(comment.likes.count) %>
           </li>
         <% end %>
       </ul>
@@ -21,7 +25,5 @@
 <% else %>
   No posts yet
 <% end %>
-
-
 
 <a href='/new'>Add Image</a>

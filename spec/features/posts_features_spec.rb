@@ -1,6 +1,9 @@
 require 'rails_helper'
+require_relative '../helpers/session_helpers'
 
 feature 'posts' do
+
+  include SessionHelpers
 
   context 'no posts have been added' do
     scenario 'should display a prompt to add a posts' do
@@ -22,10 +25,11 @@ feature 'posts' do
     end
   end
 
-  context 'creating restaurants' do
+  context 'creating posts' do
 
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
       visit '/posts'
+      sign_up
       click_link 'Add Image'
       fill_in 'Name', with: 'Image1'
       # save_and_open_page
@@ -44,19 +48,18 @@ feature 'posts' do
       visit '/posts'
       click_link 'Image'
       expect(page).to have_content 'Image'
-      p image.id
       expect(current_path).to eq "/posts/#{image.id}"
     end
 
   end
 
-  context 'editing restaurants' do
+  context 'editing posts' do
 
-    before {Post.create name: 'Image'}
 
     scenario 'lets a user edit image' do
-      visit '/posts'
-      click_link 'Edit Image'
+      sign_up
+      make_post
+      click_link 'Edit Image1'
       fill_in 'Name', with: '#Playing'
       click_button 'Update Post'
       expect(page).to have_content '#Playing'
@@ -70,9 +73,10 @@ feature 'posts' do
     before {Post.create name: 'Play'}
 
     scenario 'remove the image when user clicks delete' do
-      visit '/posts'
-      click_link 'Delete Play'
-      expect(page).not_to have_content 'Play'
+      sign_up
+      make_post
+      click_link 'Delete Image1'
+      expect(page).not_to have_content 'Image1'
       expect(page).to have_content 'Post deleted successfully'
     end
 

@@ -8,6 +8,12 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'paperclip'
+
+gem 'poltergeist'
+
+gem 'database_cleaner'
+
 gem 'omniauth-facebook'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

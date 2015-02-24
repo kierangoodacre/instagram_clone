@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InstagramClone</title>
+  <link rel="stylesheet" media="all" href="/assets/application.css" data-turbolinks-track="true" />
+  <script src="/assets/application.js" data-turbolinks-track="true"></script>
+  
+</head>
+<body>
+  <p class="notice"></p>
+  <p class="alert"></p>
+
+    <a rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a>
+
+  <a href="/users/auth/facebook">Sign in with Facebook</a>
+
+  
+  <form class="new_post" id="new_post" action="/posts" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <label for="post_name">Name</label>
+  <input type="text" name="post[name]" id="post_name" />
+  <input type="submit" name="commit" value="Create Post" />
+</form>
+
+</body>
+</html>

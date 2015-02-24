@@ -1,6 +1,9 @@
 require 'rails_helper'
+require_relative '../helpers/session_helpers'
 
 context "user not signed in and on the homepage" do
+
+
   it "should see a 'sign in' link and a 'sign up' link" do
     visit('/')
     expect(page).to have_link('Sign in')
@@ -14,6 +17,8 @@ context "user not signed in and on the homepage" do
 end
 
 context "user signed in on the homepage" do
+
+  include SessionHelpers
 
   before do
     visit('/')
@@ -30,7 +35,7 @@ context "user signed in on the homepage" do
   end
 
   it "should not see a 'sign in' link and a 'sign up' link" do
-    visit('/')
+    sign_up
     expect(page).not_to have_link('Sign in')
     expect(page).not_to have_link('Sign up')
   end
