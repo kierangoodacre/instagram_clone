@@ -16,7 +16,7 @@ Technologies
 Learning Outcomes
 -----------------
 
-This was my first solo Rails application which went well. Dealing with databases and learning the 'Rails way' was a fantastic opportunity.
+This was my first solo Rails application which went well. Dealing with databases and learning the 'Rails way' was both fantastic and at times fustrating.
 
 
 Improvements
